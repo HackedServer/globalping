@@ -11,7 +11,7 @@ export type SocketData = {
 export type WsServer = Server<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap, SocketData>;
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export const PROBES_NAMESPACE = '/probes';
+export const PROBES_NAMESPACE = '/probes2';
 
 let io: WsServer;
 

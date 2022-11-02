@@ -81,7 +81,7 @@ export class MeasurementRunner {
 
 	private sendToProbes(config: MeasurementConfig) {
 		for (const probe of config.probes) {
-			this.io.of('probes').to(probe.client).emit('probe:measurement:request', {
+			this.io.of('probes2').to(probe.client).emit('probe:measurement:request', {
 				id: config.id,
 				measurement: config.measurementOptions,
 			});
