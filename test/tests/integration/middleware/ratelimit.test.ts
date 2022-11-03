@@ -4,6 +4,7 @@ import requestIp from 'request-ip';
 import type {RateLimiterRedis} from 'rate-limiter-flexible';
 import {expect} from 'chai';
 import {getTestServer} from '../../../utils/http.js';
+import getClientIp from '../../../../src/lib/get-client-ip.js';
 
 describe('rate limiter', () => {
 	let app: Server;
@@ -19,7 +20,7 @@ describe('rate limiter', () => {
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 		const httpResponse = await requestAgent.post('/v1/').send() as Response & {req: any};
 		// Supertest renders request as ipv4
-		const clientIp = requestIp.getClientIp(httpResponse.req);
+		const clientIp = getClientIp(httpResponse.req);
 		// Koa sees ipv6-ipv4 monster
 		clientIpv6 = `::ffff:${clientIp ?? ''}`;
 
