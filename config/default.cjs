@@ -1,10 +1,9 @@
 module.exports = {
 	host: 'https://api.globalping.io',
 	redis: {
-		url: 'redis://localhost:6379',
+		url: 'redis://167.235.192.99:6379',
 		socket: {
-			tls: true,
-			rejectUnauthorized: false,
+			tls: false,
 		},
 	},
 	admin: {
