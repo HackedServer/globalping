@@ -12,7 +12,7 @@ import {registerCreateMeasurementRoute} from '../../measurement/route/create-mea
 import {registerDemoRoute} from '../../demo/route/get.js';
 import {registerHealthRoute} from '../../health/route/get.js';
 import {errorHandler} from './error-handler.js';
-import {rateLimitHandler} from './middleware/ratelimit.js';
+// Import {rateLimitHandler} from './middleware/ratelimit.js';
 import {errorHandlerMw} from './middleware/error-handler.js';
 import {corsHandler} from './middleware/cors.js';
 import {isAdminMw} from './middleware/is-admin.js';
@@ -61,7 +61,7 @@ app
 	// Error handler must always be the first middleware in a chain unless you know what you are doing ;)
 	.use(errorHandlerMw)
 	.use(isAdminMw)
-	.use(rateLimitHandler())
+	// .use(rateLimitHandler())
 	.use(responseTime())
 	.use(corsHandler())
 	.use(json({pretty: true, spaces: 2}))
